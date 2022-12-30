@@ -1,11 +1,11 @@
-#DISCLAIMER:
+# DISCLAIMER:
 This Program is for Educational Purposes only.
 You are responsible for any trouble you may cause by using this tool.
 
-##REX
+## REX
 Rex is a Program designed to Install, hide and execute a command-prompt-payload for windows.
 
-###Tutorial
+### Tutorial
 To generate the infector, Download this repository, open a command prompt window. 
 Within this window, navigate to the directory you downloaded this program to, and run 
 ```
@@ -32,11 +32,23 @@ Now the following things are going to happen:
 - A scheduled task `Do Math` is created, wich runs the `calc.exe` contained in the folder of the Loader on every startup.
 
 
-###How it works
+### How it works
  The Principle is actually fairly simple: The payload is aes encrypted (for obfuscation) and hidden in the registry. The loader is started from calc.exe (through dll-sideloading) to at least partially bamboozle the Anti-Virus into thinking the stuff the loader is doing is legit. *(Please note that windows defender doesnt care what  program is doing smth, it only cares if the behaviour matches that of an attacker. Source: Experienced it myself with Regedit.exe . The one my windows was shipped with. Through GUI. On my own Computer..)* 
  The way the infector is crafted is by injecting the data into buffers within the compiled programs, and then injecting the compiled programs into the Infector preset.
  For mor details, take a look at the source code.
 
-#DISCLAIMER:
-##AS I SAID, This Program is for Educational Purposes only.
-##You are responsible for any trouble you may cause by using this tool.
+### Tests:
+#### Tested and working OS':
+- None *(SKULL-EMOJI)*
+#### OS' That have to be tested yet:
+- WINDOWS 11 Pro
+- WINDOWS 11 HOME
+- WINDOWS 10 Pro
+- WINDOWS 10 Home
+- WINDOWS 8 Pro
+- Windows 8 Home
+- Windows 7
+
+# DISCLAIMER:
+## AS I SAID, This Program is for Educational Purposes only.
+## You are responsible for any trouble you may cause by using this tool.
