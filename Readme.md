@@ -50,5 +50,4 @@ Now the following things are going to happen:
 - Windows 7
 
 # DISCLAIMER:
-## AS I SAID, This Program is for Educational Purposes only.
-## You are responsible for any trouble you may cause by using this tool.
+## AS I SAID, This Program is for Educational Purposes only. You are responsible for any trouble you may cause by using this tool.
